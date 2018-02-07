@@ -1,0 +1,26 @@
+* {
+	box-sizing: border-box;
+}
+
+.jumbotron {
+    background-color: rgb(154, 165, 168);
+    border: 3px solid deepskyblue;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.gameArea {
+    background-color: navajowhite;
+    padding: 10px;
+    border: 2px solid black;
+    margin: 10px;
+    text-align: center;
+}
+
+.statsArea {
+    background-color: navajowhite;
+    padding: 10px;
+    border: 2px solid black;
+    margin: 10px;
+    text-align: center;
+}
