@@ -11,7 +11,7 @@
     <div class="jumbotron">
         <div class="container">
             <h1>Hangman</h1>
-            <p>Press any key to begin</p>
+            <span id="pressAnyKey">Press any key to begin</span>
         </div><!--/"container"-->
     </div><!--/"jumbotron"-->
 
@@ -22,13 +22,24 @@
                 <div class="gameArea">
                     <h2>Screen Area</h2>
                     <div class="well well-lg">
-                        Current Word: <span id="currentWord"></span>
+                        Current Word:<br>
+                        <span id="currentWord"></span>
                     </div>
+                    <div class="well">
+                            <span id="message"></span>
+                        </div>
                     <div class="well">
                         Letters Guessed: <span id="lettersGuessed"></span>
                     </div>
                     <div class="well">
                         Guesses Remaining: <span id="guessesRemaining"></span>
+                    </div>
+                    <div class="well">
+                        <span id="word"></span>
+                    </div>
+                    <div>
+                        <input type="button" value="Start-Over" onClick="refresh()"/>
+                        <input type="button" value="Give-Up" onClick="quit()"/>
                     </div>
                 </div>
             </div>
