@@ -4,7 +4,7 @@
         <meta name="viewport" content="width=devicewidth, initialscale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-        <script src="assets/javascript/game.js"></script>
+        <script src="assets/javascript/game3.js"></script>
 	<title>Hangman</title>
 </head>
 <body>
@@ -18,60 +18,31 @@
     <div class="container">
         <div class="row content">
             <!-- Game Screen Area -->
-            <div class="col-sm-6">
-                <div class="gameArea">
-                    <h2>Screen Area</h2>
-                    <div class="well well-lg">
-                        Current Word:<br>
-                        <span id="currentWord"></span>
-                    </div>
-                    <div class="well">
-                            <span id="message"></span>
-                        </div>
-                    <div class="well">
-                        Letters Guessed: <span id="lettersGuessed"></span>
-                    </div>
-                    <div class="well">
-                        Guesses Remaining: <span id="guessesRemaining"></span>
-                    </div>
-                    <div class="well">
-                        <span id="word"></span>
-                    </div>
-                    <div>
-                        <input type="button" value="Start-Over" onClick="refresh()"/>
-                        <input type="button" value="Give-Up" onClick="quit()"/>
-                    </div>
+            <div class="col-lg-12">
+                <div class="well well-lg">
+                    Current Word:<br>
+                    <span id="answerArray"></span>
+                </div>
+                <div class="well">
+                    Letters Guessed: <span id="lettersGuessed"></span>
                 </div>
             </div>
-            <div class="col-sm-6">
-                <div class="statsArea">
-                    <h2>Stats Area</h2>
-                    <div class="well">
-                        Wins: <span id="wins"></span>
-                    </div>
-                    <div class="well">
-                        Losses: <span id="losses"></span>
-                    </div>
+            <div class="col-lg-12">
+                <div class="well col-lg-4">
+                    Wins<br>
+                    <span id="wins"></span>
+                </div>
+                <div class="well col-lg-4">
+                    Guesses Remaining<br>
+                    <span id="guessesRemaining"></span>
+                </div>
+                <div class="well col-lg-4">
+                    Losses<br>
+                    <span id="losses"></span>
                 </div>
             </div>
         </div>
     </div>
-
-    <!-- <nav class="navbar navbar-top"> -->
-        <!-- <div class="container-fluid"> -->
-
-            <!-- <div class="container"> -->
-                <!-- <div class="navbar-header"> -->
-                    <!-- <a class="navbar-brand" href="index.html"><h1>Matt King</h1></a> -->
-                <!-- </div> -->
-                <!-- <div class="navbar-nav navbar-right"> -->
-                    <!-- <a href="index.html" class="navbar-link">About</a> -->
-                    <!-- <a href="portfolio.html" class="navbar-link">Portfolio</a> -->
-                    <!-- <a href="contact.html" class="navbar-link">Contact</a> -->
-                <!-- </div> -->
-            <!-- </div> -->
-        <!-- </div> -->
-    <!-- </nav> -->
 
     <!-- <footer class="container-fluid"> -->
         <!-- &copy;Copyright 2018 Matt King -->
