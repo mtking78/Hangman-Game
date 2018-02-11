@@ -35,3 +35,9 @@ console.log(winningLetters);
         //     })
         //     console.log("winningLetters: " + winningLetters);
 
+            // ***Check if userGuess is valid (letters only)***
+            if (letters.indexOf(userGuess) >= 0 && userGuess !== letters[i]) {
+                lettersGuessed.push(event.key);
+                //console.log("lettersGuessed: " + lettersGuessed);
+                document.getElementById("lettersGuessed").innerHTML = lettersGuessed;
+            }

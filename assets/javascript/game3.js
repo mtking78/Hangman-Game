@@ -13,6 +13,7 @@ var letters = ["a", "b", "c", "d", "e",
                  "k", "l", "m", "n", "o",
                  "p", "q", "r", "s", "t",
                   "u", "v", "w", "x", "y", "z"];
+var userInput = null;
 var userGuess = null;
 var lettersGuessed = [];
 var winningLetters = [];
@@ -21,6 +22,20 @@ var wordSplit = [];
 
  // ***** FUNCTIONS ***** //
  // -------------------------------------------------------------------------------------------------------
+
+ // ***Make an array of one-time-use letters contained in the current word***    works!!!
+function removeDuplicates(wordSplit) {
+     console.log(wordSplit);
+    let winningLetters = []
+    for(let i = 0; i < wordSplit.length; i++) {
+        if(winningLetters.indexOf(wordSplit[i]) == -1) {
+            winningLetters.push(wordSplit[i])
+        }
+    }
+
+    console.log("winningLetters: " + winningLetters);
+    //return winningLetters;
+}
 
 document.onclick = function(event) {
     // ***This runs the game until the condition (gameStart=false) at the end of the code block is reached***
@@ -45,38 +60,42 @@ document.onclick = function(event) {
             // Populates blanks in the "Current Word" span
             document.getElementById("answerArray").innerHTML = answerArray.join(" ");
         }
+    }
 
-        // ***Make an array of one-time-use letters contained in the current word***
-//!!!   // !!!testing!!!
-        //let wordSplit = currentWord.split("");
+    // *** Call the removeDuplicates function ***
+    winningLetters = (removeDuplicates(wordSplit));
 
-        // function removeDuplicates(wordSplit) {
-        //     //let winningLetters = []
-        //     for(let i = 0; i < wordSplit.length; i++) {
-        //         if(winningLetters.indexOf(wordSplit[i]) == -1) {
-        //             winningLetters.push(wordSplit[i])
-        //         }
-        //     }
-        //     return winningLetters;
-        //     winningLetters = (removeDuplicates(wordSplit));
-        //     console.log(winningLetters);
-        // }
 
         // ***Populates letters guessed in the "Letters Guessed" span***    works!!!
         document.onkeyup = function (event) {
-            //console.log("event.key: " + event.key);
+        //console.log("event.key: " + event.key);
             userGuess = event.key;
             console.log("userGuess is : " + userGuess);
-            lettersGuessed.push(event.key);
-            //console.log("lettersGuessed: " + lettersGuessed);
-            document.getElementById("lettersGuessed").innerHTML = lettersGuessed;
+
+            // ***Check if userGuess is valid option 1(letters only)***
+            // if (letters.indexOf(userGuess) === -1) {
+            //     alert("Letters only!");
+            // } else {
+            //     lettersGuessed.push(userGuess);
+            //     //console.log("lettersGuessed: " + lettersGuessed);
+            //     document.getElementById("lettersGuessed").innerHTML = lettersGuessed;
+            // };
+
+            // ***Check if userGuess is valid option 2(letters only)***
+            if (letters.indexOf(userGuess) >= 0 && userGuess !== letters[i] && lettersGuessed.indexOf(userGuess) === -1) {
+                lettersGuessed.push(userGuess);
+                //console.log("lettersGuessed: " + lettersGuessed);
+                document.getElementById("lettersGuessed").innerHTML = lettersGuessed;
+            } else {
+                alert("Invalid keystroke or duplicate letter!");
+            }
 
             // ***Check if userGuess exists in the currentWord***   works!!!
             for (var j = 0; j < currentWord.length; j++) {
                 if (currentWord[j] === userGuess) {
                     answerArray[j] = userGuess;
                     console.log(userGuess + " is in the word!");
-                };
+                }
             };
 
             // ***Replace blanks when user guesses correct letters***   works!!!
@@ -91,21 +110,9 @@ document.onclick = function(event) {
         // This prevents key strokes from resetting the current word to solve.  Without this, the user cannot type keys to guess letters.
         gameStart = false;
         }
-    }
 }
-// function lettersGuessed () {
-//     var lettersGuessed = document.getElementById("lettersGuessed").value;
-//     if (lettersGuessed.length > 0) {
-//         for (var i = 0; i < currentWord.length; i++) {
-//             if (currentWord[i] === lettersGuessed) {
-//                 answerArray[i] = lettersGuessed;
-//             }
-//         }
-//     }
-//     guessesRemaining--;
-//     document.getElementById("guessesRemaining").innerHTML = "No of clicks: " + count;
-//     document.getElementById("currentWord").innerHTML = answerArray.join(" ");
-// }
 
  // ***** MAIN PROCESS ***** //
  // -------------------------------------------------------------------------------------------------------
+
+
