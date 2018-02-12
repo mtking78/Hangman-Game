@@ -5,7 +5,6 @@
 }
 
 body {
-    /* background-color: black; */
     background-image: url(../images/worldmap.jpg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -17,7 +16,6 @@ body {
     border: 3px solid deepskyblue;
     border-radius: 10px;
     text-align: center;
-    /* background: url(../images/worldmap.gif); */
 }
 
 #answerArray {
@@ -33,6 +31,3 @@ h1 {
     font-family: 'Bungee Inline', cursive;
 }
 
-#wins {
-    margin: 2%;
-}
