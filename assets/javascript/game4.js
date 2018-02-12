@@ -1,7 +1,7 @@
 // ***** VARIABLES *****
 
 var gameStart = true;
-var wins = 0;
+var wins = -1;
 var losses = 0;
 var guessesRemaining = 10;
 var words = ["algeria", "botswana", "chad", "djibuti", "eritrea",
@@ -24,7 +24,7 @@ var wordSplit = [];
 
 // ***** FUNCTIONS *****
 
-function gameFucker() {
+function gameBegin() {
     // Reset arrays
     answerArray = [];
     lettersGuessed = [];
@@ -65,9 +65,9 @@ document.onkeyup = function (event) {
         lettersGuessed.push(userGuess);
         //console.log("lettersGuessed: " + lettersGuessed);
         document.getElementById("lettersGuessed").innerHTML = lettersGuessed;
-
-    } else {
-        alert("Invalid keystroke or duplicate letter!");
+        // Decrease guessesRemaining by 1 with EVERY guess (correct OR incorrect)
+        guessesRemaining--;
+        document.getElementById("guessesRemaining").innerHTML = guessesRemaining;
     }
 
     // ***Check if userGuess exists in the currentWord***   works!!!
@@ -75,9 +75,6 @@ document.onkeyup = function (event) {
         if (currentWord[j] === userGuess) {
             answerArray[j] = userGuess;
             console.log(userGuess + " is in the word!");
-        } else {
-            guessesRemaining--;
-            document.getElementById("guessesRemaining").innerHTML = guessesRemaining;
         }
     }
 
@@ -94,13 +91,14 @@ document.onkeyup = function (event) {
     if (remainingLetters === 0) {
         wins++;
         document.getElementById("wins").innerHTML = wins;
-        gameFucker();
+        document.getElementById("losses").innerHTML = losses;
+        gameBegin();
     }
 
     // Restart on Loss
     if (guessesRemaining === 0) {
-        losses--;
+        losses++;
         document.getElementById("losses").innerHTML = losses;
-        gameFucker();
+        gameBegin();
     }
 }
