@@ -27,7 +27,7 @@ function gameStart() {
 
         // Populates blanks in the "Current Word" span
         document.getElementById("currentWord").innerHTML = answerArray.join(" ");
-};
+}
 
 
 document.onkeyup = function() {
